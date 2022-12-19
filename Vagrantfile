@@ -1,6 +1,6 @@
 boxes={
-  "server":{"ib":false,roles:[],networks:['172.17.0.10']},
-#  "client":{"ib":false,roles:[],networks:["172.18.0.50"]}
+  "server":{networks:['172.17.0.10'], forwarded:false},
+  "grafana":{networks:["172.18.0.50"],forwarded:true}
 }
 
 provider= "libvirt"
@@ -23,6 +23,9 @@ Vagrant.configure("2") do |config|
       box[:networks].each do |ipi|
         #generate all networks
         vm.vm.network "private_network", ip: ipi
+        if box[:forwarded]
+          vm.vm.network "forwarded_port", guest:3000 , host: 3000
+        end
       end
       if box[:ib]
         #install ib if needed

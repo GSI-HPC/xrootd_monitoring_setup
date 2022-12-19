@@ -1,0 +1,36 @@
+---
+# Not needed since ansible already has them
+#  command: hostname
+#  register: hostname
+
+- name: "install required packages for grafana"
+  yum:
+    name: 
+      - openssl
+      - grafana
+      - mariadb
+      - mariadb-server-utils
+    state: latest
+  become: True
+  register: installed
+
+- name: set mariadb script file
+  copy:
+    src: "files/mariadb.build"
+    dest: "/mariadb.build"
+
+- name: "start mariadb service"
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: generate mariadb
+  command: "mysql < /mariadb.build"
+
+- name: "start grafana service"
+  service:
+    name: grafana-server
+    state: started
+    enabled: yes
+

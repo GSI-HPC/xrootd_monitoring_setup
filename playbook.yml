@@ -1,6 +1,10 @@
 ---
 
-- hosts: all
+- hosts: server
   become: yes
   roles:
    - XRootD
+- hosts: grafana
+  become: yes
+  roles:
+    - Grafana 
