@@ -44,3 +44,47 @@
     chdir: /xrootd-build
   when: git.changed
   become: True
+
+- name: "create groupxrootd"
+  group:
+    name: xrootd
+
+- name: "create user xrootd"
+  user:
+    name: xrootd
+    group: xrootd
+
+- name: "place service xrootd files"
+  copy:
+    src: "files/{{ item }}"
+    dest: "/usr/lib/systemd/system/{{ item }}"
+  with_items:
+    - "cmsd@.service"
+    - "xrootd@.service"
+
+- name: "Make sure xrootd directories exists"
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "xrootd"
+    group: "xrootd"
+  loop:
+    - "/xrdmnt"
+    - "/etc/xrootd"
+    - "/var/log/xrootd"
+    - "/var/run/xrootd"
+
+- name: "set configuration files"
+  template:
+    src:  "templates/xrootd@1.cf"
+    dest: "/etc/xrootd/xrootd_1.cf"
+
+- name: "enable and start xrootd dataserver"
+  service:
+    name: xrootd@1
+    state: "{{ item }}"
+    enabled: yes
+  loop:
+    - reloaded
+    - started
+
