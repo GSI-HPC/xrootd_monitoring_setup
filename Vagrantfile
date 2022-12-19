@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
         #install ib if needed
         end
       vm.vm.provision "ansible" do |ansible|
-        ansible.verbose='v'
+#        ansible.verbose='v'
         ansible.playbook="playbook.yml"
       end
 
