@@ -1,6 +1,6 @@
 boxes={
-  "server":{networks:['172.17.0.10'], forwarded:false},
-  "grafana":{networks:["172.18.0.50"],forwarded:true}
+  "server":{networks:['172.17.0.10'], forwarded:[]},
+  "grafana":{networks:["172.18.0.50"],forwarded:[[ 3000, 3000],[9090,9000]]}
 }
 
 provider= "libvirt"
@@ -17,14 +17,14 @@ Vagrant.configure("2") do |config|
           v.cpu_mode = "host-model"
         end
         v.memory = 1024
-        v.cpus = 1
+        v.cpus = 2
       end
       vm.vm.box = "generic/centos8"
       box[:networks].each do |ipi|
         #generate all networks
         vm.vm.network "private_network", ip: ipi
-        if box[:forwarded]
-          vm.vm.network "forwarded_port", guest:3000 , host: 3000
+        box[:forwarded].each do| guest,host|
+          vm.vm.network "forwarded_port", guest: guest , host: host
         end
       end
       if box[:ib]
