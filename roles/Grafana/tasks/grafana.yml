@@ -40,21 +40,17 @@
     src: "files/grafanadb.yml"
     dest: "/etc/grafana/provisioning/datasources/"
 
-- name: "create dir for json models"
-  file:
-    path: "/etc/grafana/jsonmodels"
-    state: directory
 
 - name: "include grafana dashboard models"
   copy:
-    src: "files/cpu_metrics.json"
-    dest: "/etc/grafana/jsonmodels/cpu_metrics.json"
+    src: "files/models"
+    dest: "/etc/grafana/"
 
 
 - name: "include grafana dashboard configs"
   copy:
-    src: "files/cpu_metrics.yml"
-    dest: "/etc/grafana/provisioning/dashboards/cpu_metrics.yml"
+    src: "files/default_metrics.yml"
+    dest: "/etc/grafana/provisioning/dashboards/default_metrics.yml"
 
 - name: "start grafana service"
   service:
