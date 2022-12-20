@@ -18,6 +18,7 @@
   copy:
     src: "files/mariadb.build"
     dest: "/mariadb.build"
+  register: mariadb_dump
 
 - name: "start mariadb service"
   service:
@@ -26,7 +27,34 @@
     enabled: yes
 
 - name: generate mariadb
-  command: "mysql < /mariadb.build"
+  shell: "mysql < /mariadb.build"
+  when: mariadb_dump.changed
+
+- name: "set grafana config file"
+  copy:
+    src: "files/grafana.ini"
+    dest: "/etc/grafana/grafana.ini"
+
+- name: "include grafana datasources"
+  copy:
+    src: "files/grafanadb.yml"
+    dest: "/etc/grafana/provisioning/datasources/"
+
+- name: "create dir for json models"
+  file:
+    path: "/etc/grafana/jsonmodels"
+    state: directory
+
+- name: "include grafana dashboard models"
+  copy:
+    src: "files/cpu_metrics.json"
+    dest: "/etc/grafana/jsonmodels/cpu_metrics.json"
+
+
+- name: "include grafana dashboard configs"
+  copy:
+    src: "files/cpu_metrics.yml"
+    dest: "/etc/grafana/provisioning/dashboards/cpu_metrics.yml"
 
 - name: "start grafana service"
   service:
@@ -34,3 +62,5 @@
     state: started
     enabled: yes
 
+      #064
+      #
