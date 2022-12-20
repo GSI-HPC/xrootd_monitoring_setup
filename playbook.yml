@@ -7,4 +7,5 @@
 - hosts: grafana
   become: yes
   roles:
+    - Prometheus
     - Grafana 
