@@ -85,6 +85,5 @@
     state: "{{ item }}"
     enabled: yes
   loop:
-    - reloaded
     - started
 
