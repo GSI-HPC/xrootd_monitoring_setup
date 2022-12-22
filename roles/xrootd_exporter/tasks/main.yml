@@ -1,0 +1,33 @@
+---
+
+- name: Install python
+  yum:
+    name: "{{ item }}"
+  loop:
+    - python39
+    - python39-devel
+    - python3-devel
+    - python2-devel
+
+- name: create links
+  file:
+    src: "/usr/bin/{{ item }}3"
+    dest: "/usr/bin/{{item}}"
+    state: link
+  loop:
+    - pip
+    - python
+
+- name: copy exporter.py
+  copy:
+    src: files/xrootd-exporter.py
+    dest: /usr/bin/
+    mode: 777
+
+- name: install python dependencies
+  pip: 
+    name: "{{ item }}"
+  loop:
+    - prometheus_client
+    - psutil
+    - requests
