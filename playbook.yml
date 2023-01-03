@@ -4,6 +4,7 @@
   become: yes
   roles:
    - XRootD
+   - xrootd_exporter
 - hosts: grafana
   become: yes
   roles:
