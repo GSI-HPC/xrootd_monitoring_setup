@@ -5,4 +5,4 @@ all.adminpath /var/run/xrootd
 cms.space 1k 2k
 all.export / r/w
 oss.localroot /xrdmnt/
-
+xrd.report 127.0.0.1:10024 every 10 -all
