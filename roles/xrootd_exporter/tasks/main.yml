@@ -2,12 +2,7 @@
 
 - name: Install python
   yum:
-    name: "{{ item }}"
-  loop:
-    - python39
-    - python39-devel
-    - python3-devel
-    - python2-devel
+    name: python39
 
 - name: create links
   file:
