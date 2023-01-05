@@ -17,7 +17,7 @@
   copy:
     src: files/xrootd-exporter.py
     dest: /usr/bin/
-    mode: 777
+    mode: 775
 
 - name: install python dependencies
   pip: 
