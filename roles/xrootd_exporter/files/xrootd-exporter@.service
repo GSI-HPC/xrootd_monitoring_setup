@@ -1,0 +1,17 @@
+[Unit]
+Description=xrootd exporter instance "%i"
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Environment=LD_LIBRARY_PATH=/usr/local/lib64
+Environment=MPX_PATH=/usr/local/bin/mpxstats
+User=xrootd
+Type=simple
+ExecStart=python3 /usr/bin/xrootd-exporter.py
+StandardOutput=/var/log/xrootd/xrootd-exporter-%i.log
+StandardError=/var/log/xrootd/xrootd-exporter-%i.log
+TimeoutSec=10
+WorkingDirectory=/var/run/xrootd
+LimitNOFILE=65536
