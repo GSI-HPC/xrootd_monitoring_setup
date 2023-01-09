@@ -32,6 +32,13 @@
     mode: 771
     owner: xrootd
 
+- name: copy description file
+  copy:
+    src: files/descriptions.cfg
+    dest: /etc/xrootd/
+    mode: 771
+    owner: xrootd
+
 - name: enable and start xrootd-exporter
   service:
     name: xrootd-exporter@1
