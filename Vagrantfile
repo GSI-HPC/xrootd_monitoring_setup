@@ -1,6 +1,6 @@
 boxes={
   "server":{networks:['172.17.0.10'], forwarded:[[9090,9099]]},
-  "grafana":{networks:["172.18.0.50"],forwarded:[[ 3000, 3000],[9090,9000]]}
+  "grafana":{networks:["172.17.0.50"],forwarded:[[ 3000, 3000],[9090,9000]]}
 }
 
 provider= "libvirt"
