@@ -1,6 +1,6 @@
 ---
 
-- hosts: server
+- hosts: server*
   become: yes
   roles:
    - XRootD
