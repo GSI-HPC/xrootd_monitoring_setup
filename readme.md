@@ -27,3 +27,6 @@ running under General / XRootD Servers on the Grafana instance.
 
 ![Example Dashboard](images/dashboard.png)
 
+## License
+
+LGPL3 as described in the [License File](./LICENSE)
