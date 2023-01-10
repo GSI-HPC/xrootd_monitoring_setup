@@ -89,7 +89,7 @@
           "expr": "time()-xrd_tos",
           "hide": false,
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{instance}}",
           "refId": "B"
         }
       ],
@@ -415,5 +415,5 @@
   "timezone": "",
   "title": "XRootD Servers",
   "uid": "SNIv_l5Vz",
-  "version": 3
+  "version": 1
 }
