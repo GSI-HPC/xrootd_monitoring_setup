@@ -1,6 +1,6 @@
 # XRootD Monitoring Setup
 
-A Vagrant setup using multiple XRootD data servers running the [xrootd-exporter](https://git.gsi.de/dc/XRootD-Reps/xrootd-exporter) and a Prometheus/Grafana instance.
+A Vagrant setup using multiple XRootD data servers running the [xrootd-exporter](https://github.com/GSI-HPC/xrootd_exporter) and a Prometheus/Grafana instance.
 
 ## Dependencies 
 
@@ -13,7 +13,7 @@ Therefor Ansible, libvirt and the vagrant-libvirt plugin needs to be installed o
 
 ## Usage
 
-First, make sure you checked out all submodules, as this repository is primarily used to demonstrate/test/debug the [xrootd-exporter](https://git.gsi.de/dc/XRootD-Reps/xrootd-exporter).
+First, make sure you checked out all submodules, as this repository is primarily used to demonstrate/test/debug the [xrootd-exporter](https://github.com/GSI-HPC/xrootd_exporter).
 
 Then, `vagrant up` starts the aforementioned servers, forwarding:
 
