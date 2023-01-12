@@ -11,8 +11,8 @@ Environment=EXPORTER_DESCRIPTION_FILE=/etc/xrootd/descriptions.cfg
 User=xrootd
 Type=simple
 ExecStart=python3 /usr/bin/xrootd_exporter.py
-StandardOutput=/var/log/xrootd/xrootd_exporter_%i.log
-StandardError=/var/log/xrootd/xrootd_exporter_%i.log
+StandardOutput=/var/log/xrootd/xrootd_exporter-%i.log
+StandardError=/var/log/xrootd/xrootd_exporter-%i.log
 TimeoutSec=10
 WorkingDirectory=/var/run/xrootd
 LimitNOFILE=65536
