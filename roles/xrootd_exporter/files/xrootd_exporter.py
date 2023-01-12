@@ -1,1 +1,1 @@
-../../../xrootd-exporter/xrootd-exporter.py
+../../../xrootd_exporter/xrootd_exporter.py
