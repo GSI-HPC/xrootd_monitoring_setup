@@ -17,7 +17,7 @@
 
 - name: copy exporter.py
   copy:
-    src: files/xrootd-exporter.py
+    src: files/xrootd_exporter.py
     dest: /usr/bin/
     mode: 775
 
@@ -27,7 +27,7 @@
 
 - name: copy exporter unit file
   copy:
-    src: files/xrootd-exporter@.service
+    src: files/xrootd_exporter@.service
     dest: /usr/lib/systemd/system/
     mode: 771
     owner: xrootd
@@ -41,6 +41,6 @@
 
 - name: enable and start xrootd-exporter
   service:
-    name: xrootd-exporter@1
+    name: xrootd_exporter@1
     state: started
     enabled: yes
