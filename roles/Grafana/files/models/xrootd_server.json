@@ -19,43 +19,30 @@
   "links": [],
   "panels": [
     {
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 6,
-      "title": "Row title",
-      "type": "row"
-    },
-    {
       "datasource": "promi",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
-          "mappings": [
-            {
-              "from": "",
-              "id": 1,
-              "text": "",
-              "to": "",
-              "type": 1
-            }
-          ],
+          "mappings": [],
+          "max": 900,
+          "min": 0,
+          "noValue": "0",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "red",
                 "value": null
               },
               {
-                "color": "red",
-                "value": 80
+                "color": "yellow",
+                "value": 300
+              },
+              {
+                "color": "green",
+                "value": 600
               }
             ]
           },
@@ -65,9 +52,9 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 5,
+        "w": 12,
         "x": 0,
-        "y": 1
+        "y": 0
       },
       "id": 4,
       "options": {
@@ -78,16 +65,20 @@
           "fields": "",
           "values": false
         },
-        "showThresholdLabels": false,
+        "showThresholdLabels": true,
         "showThresholdMarkers": true,
-        "text": {}
+        "text": {
+          "valueSize": 30
+        }
       },
       "pluginVersion": "7.5.9",
       "targets": [
         {
           "exemplar": true,
           "expr": "time()-xrd_tos",
+          "format": "time_series",
           "hide": false,
+          "instant": false,
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "B"
@@ -142,9 +133,9 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 19,
-        "x": 5,
-        "y": 1
+        "w": 12,
+        "x": 12,
+        "y": 0
       },
       "id": 8,
       "options": {
@@ -218,7 +209,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 9
+        "y": 8
       },
       "hiddenSeries": false,
       "id": 2,
@@ -331,7 +322,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 9
+        "y": 8
       },
       "hiddenSeries": false,
       "id": 10,
@@ -454,7 +445,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 17
+        "y": 16
       },
       "hiddenSeries": false,
       "id": 11,
@@ -563,7 +554,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 17
+        "y": 16
       },
       "hiddenSeries": false,
       "id": 12,
@@ -665,12 +656,12 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "XRootD Servers",
   "uid": "SNIv_l5Vz",
-  "version": 5
+  "version": 7
 }
