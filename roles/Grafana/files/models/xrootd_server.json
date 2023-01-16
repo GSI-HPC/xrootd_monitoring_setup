@@ -210,19 +210,7 @@
         "defaults": {
           "unit": "binBps"
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "{group=\"xrootd\", instance=\"172.17.0.10:9090\", job=\"xrootd\"}"
-            },
-            "properties": [
-              {
-                "id": "displayName"
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "fill": 1,
       "fillGradient": 0,
@@ -254,7 +242,11 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:75"
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -279,6 +271,15 @@
         "sort": 0,
         "value_type": "individual"
       },
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "^.*instance=\"([0-9.:]*)\".*",
+            "renamePattern": "$1"
+          }
+        }
+      ],
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -380,7 +381,15 @@
         "sort": 0,
         "value_type": "individual"
       },
-      "transformations": [],
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "^.*instance=\"([0-9.:]*)\".*",
+            "renamePattern": "$1"
+          }
+        }
+      ],
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -494,6 +503,15 @@
         "sort": 0,
         "value_type": "individual"
       },
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "^.*instance=\"([0-9.:]*)\".*",
+            "renamePattern": "$1"
+          }
+        }
+      ],
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -595,7 +613,15 @@
         "sort": 0,
         "value_type": "individual"
       },
-      "transformations": [],
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "^.*instance=\"([0-9.:]*)\".*",
+            "renamePattern": "$1"
+          }
+        }
+      ],
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -646,5 +672,5 @@
   "timezone": "",
   "title": "XRootD Servers",
   "uid": "SNIv_l5Vz",
-  "version": 3
+  "version": 5
 }
